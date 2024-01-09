@@ -11,6 +11,17 @@ import { ProduitService } from '../services/produit.service';
 export class ProduitsComponent {
   produits : Produit[]; //un tableau de Produit
   constructor(private produitService: ProduitService ) {
-  this.produits = produitService.listeProduits();
+    this.produits = produitService.listeProduits();
+  }
+  
+  
+  supprimerProduit(p: Produit)
+  {
+    let conf = confirm("Etes-vous sûr ?")
+    if(conf){
+      //console.log(p); 
+      this.produitService.supprimerProduit(p);
+    }
+    
   }
 }
